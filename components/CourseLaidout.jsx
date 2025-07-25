@@ -11,7 +11,7 @@ const CourseLaidout = ({contents}) => {
         {content[0].values.map((item, index) => (
           <div key={item.id} className="flex items-start gap-4">
             <div className={`p-3 rounded-full`}>
-              <Image src={item.icon} width={40} height={45} />
+              <Image src={item.icon} width={40} height={45} alt="icon"/>
             </div>
             <div>
               <h3 className="font-semibold text-lg">{item.title}</h3>

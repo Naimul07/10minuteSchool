@@ -22,6 +22,10 @@ export default async function Home() {
       <div className="container mx-auto mt-[-280px] relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="col-span-2 mt-[280px]">
+            <div className="md:hidden">
+            <Cta des={data.cta_text} />
+             <ChechLists list={data.checklist} />
+            </div>
             <Instructors teacher={data.sections} />
             <CourseLaidout contents={data.sections} />
             <LearnbyCourse contents={data.sections} />

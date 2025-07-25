@@ -18,7 +18,7 @@ const ExclusiveFeatures = ({ contents }) => {
             <div className="space-y-3">
               <h3 className="text-lg font-semibold">{section.title}</h3>
               <div className="space-y-2">
-                {console.log(section)}
+          
                 {section.checklist.map((point, idx) => (
                   <div key={idx} className="flex items-start gap-2">
                     <FaCheck className="text-blue-600 mt-1 flex-shrink-0" />

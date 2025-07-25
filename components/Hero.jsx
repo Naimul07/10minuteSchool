@@ -1,13 +1,15 @@
 
 import { FaStar } from "react-icons/fa";
+import Trailer from "./Trailer";
 const Hero = ({ hero }) => {
 
   return (
     <div className="bg-cover bg-center bg-no-repeat py-24 px-4 text-white "
       style={{ backgroundImage: `url(/back.png)` }}>
       <div className="container mx-auto">
-
-
+        <div className="pb-4 md:pb-0 md:hidden">
+          <Trailer contents={hero.media}/>
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 ">
           <div className="col-span-1">
             <div className="py-2">{hero.title}</div>

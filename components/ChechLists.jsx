@@ -8,14 +8,14 @@ const ChechLists = ({ list }) => {
       <div className="px-2 ">
         <ul className="list-none">
           {list.map((item, id) => (
-         <li className="flex gap-3 py-1 items-center" key={id}>
-          <div><Image src={item.icon} height={10} width={15} alt="icon"/></div>
-          <div className="text-black font-medium">{item.text}</div>
-         </li>
+            <li className="flex gap-3 py-1 items-center" key={id}>
+              <div><Image src={item.icon} height={10} width={15} alt="icon" /></div>
+              <div className="text-black font-medium">{item.text}</div>
+            </li>
 
-        ))} 
+          ))}
         </ul>
-    </div>
+      </div>
     </div >
   )
 }

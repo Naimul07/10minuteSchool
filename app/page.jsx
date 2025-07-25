@@ -26,7 +26,7 @@ export default async function Home() {
       </div>
       <div>
         <Trailer/>
-        <Cta/>
+        <Cta des = {data.cta_text}/>
         <ChechLists/>
       </div>
     </div>

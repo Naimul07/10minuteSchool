@@ -6,29 +6,42 @@ import ExclusiveFeatures from "@/components/ExclusiveFeatures";
 import Hero from "@/components/Hero";
 import Instructors from "@/components/Instructors";
 import LearnbyCourse from "@/components/LearnbyCourse";
-;
 import Trailer from "@/components/Trailer";
-
 
 export default async function Home() {
   const res = await fetch('https://api.10minuteschool.com/discovery-service/api/v1/products/ielts-course')
   const res1 = await res.json();
-  const data = res1.data
+  const data = res1.data;
+
   return (
     <div>
-      <div>
-        <Hero hero={data}/>
-        <Instructors teacher={data.sections}/>
-        <CourseLaidout contents ={data.sections}/>
-        <LearnbyCourse contents ={data.sections}/>
-        <ExclusiveFeatures contents ={data.sections}/>
-        <CourseDeatials contents ={data.sections}/>
+      <div className="relative">
+        <Hero hero={data} />
       </div>
-      <div>
-        <Trailer/>
-        <Cta des = {data.cta_text}/>
-        <ChechLists list = {data.checklist}/>
+
+      <div className="container mx-auto mt-[-280px] relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="col-span-2 mt-[280px]">
+            <Instructors teacher={data.sections} />
+            <CourseLaidout contents={data.sections} />
+            <LearnbyCourse contents={data.sections} />
+            <ExclusiveFeatures contents={data.sections} />
+            <CourseDeatials contents={data.sections} />
+          </div>
+
+          {/* Sidebar (Trailer + CTA + Sticky Checklist) */}
+          <div className="hidden md:block md:col-span-1 shadow-md px-2 rounded-md space-y-4">
+              <Trailer contents={data.media} />
+            <Cta des={data.cta_text} />
+            <div className="sticky top-4">
+              <ChechLists list={data.checklist} />
+            </div>
+            
+            
+          </div>
+        </div>
       </div>
+
     </div>
   );
 }

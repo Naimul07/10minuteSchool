@@ -21,7 +21,7 @@ export default async function Home() {
         <Instructors teacher={data.sections}/>
         <CourseLaidout contents ={data.sections}/>
         <LearnbyCourse contents ={data.sections}/>
-        <ExclusiveFeatures/>
+        <ExclusiveFeatures contents ={data.sections}/>
         <CourseDeatials/>
       </div>
       <div>

@@ -19,7 +19,7 @@ function Trailer({ contents }) {
   return (
     <div className="max-w-3xl mx-auto p-6 space-y-6 bg-white">
       <div className="rounded-md relative w-full">
-        <Image src={images[image]} height={300} width={300} alt="main pic" className="h-50 w-full rounded-md" />
+        <Image src={images[image]} height={300} width={300} alt="main pic" className="h-80 md:h-50 w-full rounded-md" />
         <div className="absolute flex justify-between top-1/2 w-full -translate-y-1/2 z-10 px-2">
           <button onClick={prev} className="text-black font-extrabold text-xl rounded-full bg-white p-1"><IoIosArrowBack /></button>
           <button onClick={next} className="text-black font-extrabold text-xl rounded-full bg-white p-1"><IoIosArrowForward /></button>

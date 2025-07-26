@@ -1,4 +1,7 @@
+'use client'
 import Hero from "@/components/Hero";
+import Image from "next/image";
+import { useState } from "react";
 
 export default async function Page() {
     const res = await fetch(
@@ -7,11 +10,5 @@ export default async function Page() {
     );
     const data = await res.json();
     const course = data.data;
-
-    return (
-        <div className="max-w-3xl mx-auto p-6 space-y-6">
-
-            <Hero lace={course}/>
-        </div>
-    );
+  
 }

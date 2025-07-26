@@ -1,41 +1,39 @@
 'use client'
 import Image from "next/image";
 import { useState } from "react";
-import { FaChevronLeft, FaChevronRight, FaPlayCircle } from "react-icons/fa";
-
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 
 function Trailer({ contents }) {
-  const [current, setCurrent] = useState(0);
+  const images = contents.map((item) =>
+    item.thumbnail_url || (item.resource_type === "image" ? item.resource_value : null)
+  )
+  const [image, setImage] = useState(0);
+  const prev = () => {
+    setImage((prev) => prev === 0 ? images.length - 1 : prev - 1)
+  }
+  const next = () => {
+    setImage((prev) => (prev + 1) % images.length)
 
-  const nextSlide = () => setCurrent((current + 1) % slides.length);
-  const prevSlide = () => setCurrent((current - 1 + slides.length) % slides.length);
-
+  }
   return (
-    <div className="max-w-3xl mx-auto p-4 h-96 border-2">
-      {/* <div className="relative bg-gray-200 rounded-lg overflow-hidden">
-        <Image src={slides[current].src} alt={slides[current].title} className="w-full object-cover" />
-        <button className="absolute inset-0 flex items-center justify-center text-white text-6xl">
-          <FaPlayCircle className="w-16 h-16 text-white drop-shadow-lg" />
-        </button>
-        <button onClick={prevSlide} className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow">
-          <FaChevronLeft />
-        </button>
-        <button onClick={nextSlide} className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow">
-          <FaChevronRight />
-        </button>
-      </div> */}
+    <div className="max-w-3xl mx-auto p-6 space-y-6 bg-white">
+      <div className="rounded-md relative w-full">
+        <Image src={images[image]} height={300} width={300} alt="main pic" className="h-50 w-full rounded-md" />
+        <div className="absolute flex justify-between top-1/2 w-full -translate-y-1/2 z-10 px-2">
+          <button onClick={prev} className="text-black font-extrabold text-xl rounded-full bg-white p-1"><IoIosArrowBack /></button>
+          <button onClick={next} className="text-black font-extrabold text-xl rounded-full bg-white p-1"><IoIosArrowForward /></button>
+        </div>
+      </div>
+      <div className="flex gap-4 overflow-hidden">
+        {images.map((item, id) => {
+          return (
+            <div key={id} className={`mb-4 ${image === id ? 'border-2 border-red-400' : ''}`}>
+              <img onClick={() => setImage(id)} src={item} alt={item.name} className="w-full max-w-md h-6" />
 
-      <div className="flex mt-4 gap-2 justify-center">
-        {contents.map((slide, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrent(index)}
-            className={` rounded border-2 overflow-hidden ${index === current ? "border-red-500" : "border-transparent"}`}
-          >
-            <Image src={slide?.thumbnail_url} alt={slide.name} className="object-cover" height={400} width={500} />
-          </button>
-        ))}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

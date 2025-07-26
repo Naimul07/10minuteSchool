@@ -23,8 +23,8 @@ export default async function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="col-span-2 mt-[280px]">
             <div className="md:hidden">
-            <Cta des={data.cta_text} />
-             <ChechLists list={data.checklist} />
+              <Cta des={data.cta_text} />
+              <ChechLists list={data.checklist} />
             </div>
             <Instructors teacher={data.sections} />
             <CourseLaidout contents={data.sections} />
@@ -34,14 +34,15 @@ export default async function Home() {
           </div>
 
           {/* Sidebar (Trailer + CTA + Sticky Checklist) */}
-          <div className="hidden md:block md:col-span-1 shadow-md px-2 rounded-md space-y-4">
-              <Trailer contents={data.media} />
+          <div className="hidden md:block md:col-span-1 px-2 rounded-md space-y-4 bg-white">
+            
+            <Trailer contents={data.media} />
             <Cta des={data.cta_text} />
-            <div className="sticky top-4">
+            <div className="sticky top-4 shadow-md rounded-md px-2">
               <ChechLists list={data.checklist} />
             </div>
-            
-            
+
+
           </div>
         </div>
       </div>

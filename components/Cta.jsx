@@ -2,7 +2,7 @@
 
 const Cta = ({ des }) => {
   return (
-    <div className="my-2">
+    <div className="my-2 shadow-md px-2">
 
       <h1 className="text-2xl font-bold mb-3 p-3">৳1000</h1>
 

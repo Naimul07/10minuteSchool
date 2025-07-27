@@ -9,7 +9,11 @@ import LearnbyCourse from "@/components/LearnbyCourse";
 import Trailer from "@/components/Trailer";
 
 export default async function Home() {
-  const res = await fetch('https://api.10minuteschool.com/discovery-service/api/v1/products/ielts-course')
+  const res = await fetch('https://api.10minuteschool.com/discovery-service/api/v1/products/ielts-course', {
+  headers: {
+    'X-TENMS-SOURCE-PLATFORM': 'web'
+  }
+})
   const res1 = await res.json();
   const data = res1.data;
 

@@ -4,7 +4,7 @@ import Trailer from "./Trailer";
 const Hero = ({ hero }) => {
 
   return (
-    <div className="bg-cover bg-center bg-no-repeat py-24 px-4 text-white "
+    <div className="bg-cover bg-center bg-no-repeat py-24 px-8 lg:px-18 text-white "
       style={{ backgroundImage: `url(/back.png)` }}>
       <div className="container mx-auto">
         <div className="pb-4 md:pb-0 md:hidden">
